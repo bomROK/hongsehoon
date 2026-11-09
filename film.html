@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="BRANDING × PERFORMANCE × CEO · 2분 52초 · 가로형·세로형">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bomrok.github.io/hongsehoon/film.html">
+<meta property="og:title" content="홍세훈 자기소개 영상">
+<meta property="og:description" content="BRANDING × PERFORMANCE × CEO · 2분 52초 · 가로형·세로형">
+<meta property="og:image" content="https://bomrok.github.io/hongsehoon/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>*,*::before,*::after{box-sizing:border-box}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>홍세훈 자기소개 영상</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* Layout: a single centered stage; format switch above, link to the web resume below */
+:root{--bg:#0b0d12;--fg:#f2ede4;--muted:#9aa0ad;--line:#2a2f3a;--sig:#ff6a3d;--sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);word-break:keep-all}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 56px;display:grid;gap:20px}
+.top{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:end;justify-content:space-between}
+h1{margin:0;font-size:clamp(28px,5vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.lab{font-size:12px;font-weight:700;letter-spacing:.24em;color:var(--sig);text-transform:uppercase;margin-bottom:6px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:999px;padding:7px 16px;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.seg button:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
+.stage{display:flex;justify-content:center}
+video{display:block;max-width:100%;background:#000;border-radius:6px}
+#vh{width:100%;aspect-ratio:16/9}
+#vv{height:min(78vh,860px);aspect-ratio:9/16}
+.foot{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;color:var(--muted);font-size:14px}
+.foot a{color:var(--fg);font-weight:700;border:1px solid var(--fg);border-radius:999px;padding:6px 14px;text-decoration:none}
+.foot a:hover{background:var(--fg);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div><div class="lab">Branding × Performance × CEO</div><h1>홍세훈 자기소개 영상</h1></div>
+    <div class="seg" role="group" aria-label="화면 비율">
+      <button type="button" id="bh" aria-pressed="true">가로형 16:9</button>
+      <button type="button" id="bv" aria-pressed="false">세로형 9:16</button>
+    </div>
+  </div>
+  <div class="stage">
+    <video id="vh" src="intro.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
+    <video id="vv" src="intro_v.mp4" poster="poster_v.jpg" controls playsinline preload="none" hidden></video>
+  </div>
+  <div class="foot">
+    <span>2분 52초</span>
+    <a href="./">웹 이력서 보기 →</a>
+  </div>
+</div>
+<script>
+const vh=document.getElementById('vh'),vv=document.getElementById('vv'),bh=document.getElementById('bh'),bv=document.getElementById('bv');
+function show(v){const h=v==='h';vh.hidden=!h;vv.hidden=h;bh.setAttribute('aria-pressed',h);bv.setAttribute('aria-pressed',!h);(h?vv:vh).pause();try{localStorage.setItem('fmt',v)}catch(e){}}
+bh.onclick=()=>show('h');bv.onclick=()=>show('v');
+try{if(localStorage.getItem('fmt')==='v')show('v')}catch(e){}
+</script>
+
+</body>
+</html>
