@@ -9,7 +9,7 @@
 <meta property="og:url" content="https://bomrok.github.io/hongsehoon/">
 <meta property="og:title" content="홍세훈 · 풀퍼널 마케팅 전략가">
 <meta property="og:description" content="인지(BRANDING)부터 전환(PERFORMANCE)까지, 경영자(CEO)의 시각으로 풀퍼널 마케팅을 설계하는 전략가. 자기소개 영상과 웹 이력서.">
-<meta property="og:image" content="https://bomrok.github.io/hongsehoon/og.jpg">
+<meta property="og:image" content="https://bomrok.github.io/hongsehoon/og2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,11 +35,12 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .hero{display:grid;gap:22px;padding-bottom:40px;border-bottom:1px solid var(--line)}
 .hero h1{font-size:clamp(56px,11vw,112px);font-weight:900;letter-spacing:-.04em;line-height:1}
 .thesis{font-family:var(--serif);font-weight:700;font-size:clamp(22px,3.4vw,34px);line-height:1.55;max-width:30ch}
-.w{position:relative;display:inline-block}
-.w small{position:absolute;left:50%;transform:translateX(-50%);top:-1.15em;font-family:var(--sans);font-size:11px;font-weight:900;letter-spacing:.18em;color:var(--sig);white-space:nowrap;line-height:1}
-.facts{display:flex;flex-wrap:wrap;gap:8px 10px;margin:0;padding:0;list-style:none}
-.facts li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:500}
+.k{background:linear-gradient(var(--sig-soft),var(--sig-soft)) no-repeat 0 88%/100% .42em;padding:0 .05em}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.facts li{border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px;font-weight:500;line-height:1.45;display:grid;gap:2px;align-content:start}
+.facts li b{font-size:20px;font-weight:900;color:var(--sig);letter-spacing:-.02em}
 .contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:15px}
+.hero .contact .mail{flex-basis:100%}
 .contact .mail{font-weight:700;user-select:all}
 .btn{font:inherit;font-size:14px;font-weight:700;border:1px solid var(--fg);background:transparent;color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer;text-decoration:none}
 .btn:hover{background:var(--fg);color:var(--bg)}
@@ -98,6 +99,8 @@ footer .thesis{font-size:clamp(20px,3vw,28px)}
   .pillars{grid-template-columns:minmax(0,1fr)}
   .case{grid-template-columns:minmax(0,1fr);gap:12px}
   .mgmt,.two{grid-template-columns:minmax(0,1fr)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero h1{font-size:72px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -107,12 +110,12 @@ footer .thesis{font-size:clamp(20px,3vw,28px)}
   <header class="hero">
     <div class="lab">Branding × Performance × CEO</div>
     <h1>홍세훈</h1>
-    <p class="thesis"><span class="w">인지<small>BRANDING</small></span>부터 <span class="w">전환<small>PERFORMANCE</small></span>까지, <span class="w">경영자<small>CEO</small></span>의 시각으로 풀퍼널 마케팅을 설계하는 전략가</p>
+    <p class="thesis"><span class="k">인지</span>부터 <span class="k">전환</span>까지,<br><span class="k">경영자</span>의 시각으로<br>풀퍼널 마케팅을 설계하는 전략가</p>
     <ul class="facts">
-      <li>광고 경력 20년</li>
-      <li>2024 서든어택 캠페인 7개 부문 수상</li>
-      <li>대표이사 취임 1년차 흑자 전환</li>
-      <li>마케팅 AI 솔루션 직접 설계</li>
+      <li><b>20년</b>광고 경력</li>
+      <li><b>7개 부문</b>2024 서든어택 캠페인 수상</li>
+      <li><b>흑자 전환</b>대표이사 취임 1년차</li>
+      <li><b>SOLUTION.D</b>마케팅 AI 솔루션 직접 설계</li>
     </ul>
     <div class="contact">
       <span class="mail" id="mail">neoliberty@naver.com</span>
