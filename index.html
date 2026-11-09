@@ -45,9 +45,12 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .btn{font:inherit;font-size:14px;font-weight:700;border:1px solid var(--fg);background:transparent;color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer;text-decoration:none}
 .btn:hover{background:var(--fg);color:var(--bg)}
 .btn:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
-.film{margin:44px 0 8px}
+.film{margin:6px 0 4px}
 .film video{display:block;width:100%;max-width:100%;aspect-ratio:16/9;background:#000;border-radius:6px}
-.film p{margin:10px 0 0;color:var(--muted);font-size:13px}
+.film-bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin-top:12px;font-size:14px;color:var(--muted)}
+.btn-film{display:inline-flex;align-items:center;gap:6px;background:var(--sig);color:#fff;font-weight:800;font-size:15px;text-decoration:none;border-radius:999px;padding:10px 18px}
+.btn-film:hover{filter:brightness(1.08)}
+.btn-film:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 section{padding-top:64px}
 .sec-h{display:grid;gap:6px;margin-bottom:26px}
 .sec-h h2{font-size:clamp(30px,5.4vw,46px);font-weight:900;letter-spacing:-.03em;line-height:1.08}
@@ -113,6 +116,14 @@ footer .thesis{font-size:clamp(20px,3vw,28px)}
     <div class="lab">Branding × Performance × CEO</div>
     <h1>홍세훈</h1>
     <p class="thesis"><span class="k">인지</span>부터 <span class="k">전환</span>까지,<br><span class="k">경영자</span>의 시각으로<br>풀퍼널 마케팅을 설계하는 전략가</p>
+    <div class="film">
+      <video src="intro.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
+      <div class="film-bar">
+        <span>자기소개 영상 · 2분 52초</span>
+        <a class="btn-film" href="film.html">▶ 영상 전용 페이지 · 가로형/세로형</a>
+      </div>
+    </div>
+
     <ul class="facts">
       <li><b>20년</b>광고 경력</li>
       <li><b>7개 부문</b>2024 서든어택 캠페인 수상</li>
@@ -126,10 +137,6 @@ footer .thesis{font-size:clamp(20px,3vw,28px)}
     </div>
   </header>
 
-  <div class="film">
-    <video src="intro.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
-    <p>자기소개 영상 · 2분 52초 · <a href="film.html">가로형·세로형 영상 페이지</a></p>
-  </div>
 
   <section id="pillars">
     <div class="sec-h"><div class="lab">How I work</div><h2>세 가지를 함께 보는 마케터</h2></div>
