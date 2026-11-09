@@ -52,6 +52,17 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .unmute{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);font:inherit;font-size:15px;font-weight:800;background:rgba(11,13,18,.82);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:10px 18px;cursor:pointer;white-space:nowrap}
 .unmute:hover{background:rgba(11,13,18,.95)}
 .unmute:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
+.actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.act{display:flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-size:15px;font-weight:800;text-decoration:none;color:var(--fg);background:transparent;border:1.5px solid var(--fg);border-radius:12px;padding:12px 10px;cursor:pointer;text-align:center;line-height:1.3}
+.act small{font-weight:500;color:var(--muted);font-size:12px}
+.act:hover{background:var(--fg);color:var(--bg)}
+.act:hover small{color:var(--bg)}
+.act.share{background:var(--sig);border-color:var(--sig);color:#fff}
+.act.share:hover{filter:brightness(1.08);background:var(--sig);color:#fff}
+.act:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
+.act .ic{font-size:16px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+.toast.on{opacity:1}
 .film-bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin-top:12px;font-size:14px;color:var(--muted)}
 .btn-film{display:inline-flex;align-items:center;gap:6px;background:var(--sig);color:#fff;font-weight:800;font-size:15px;text-decoration:none;border-radius:999px;padding:10px 18px}
 .btn-film:hover{filter:brightness(1.08)}
@@ -110,6 +121,7 @@ footer .thesis{font-size:clamp(20px,3vw,28px)}
   .case{grid-template-columns:minmax(0,1fr);gap:12px}
   .mgmt,.two{grid-template-columns:minmax(0,1fr)}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .actions{grid-template-columns:minmax(0,1fr)}
   .hero h1{font-size:72px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -138,9 +150,12 @@ footer .thesis{font-size:clamp(20px,3vw,28px)}
     <div class="contact">
       <span class="mail" id="mail">neoliberty@naver.com</span>
       <span class="mail tel">010-9551-9238</span>
-      <button class="btn" id="copy" type="button">이메일 복사</button>
-      <a class="btn" href="https://star.tvcf.co.kr/HONG7335ABB7B" target="_blank" rel="noopener">TVCF 광고 아카이브 ↗</a>
     </div>
+      <div class="actions">
+        <a class="act" href="hongsehoon_resume.pdf" download="홍세훈_이력서.pdf"><span class="ic">↓</span>이력서 PDF</a>
+        <a class="act" href="portfolio_1080p.mp4" download="홍세훈_포트폴리오_영상.mp4"><span class="ic">↓</span>포트폴리오 영상 <small>52MB</small></a>
+        <button type="button" class="act share"><span class="ic">↗</span>이 페이지 공유하기</button>
+      </div>
   </header>
 
 
@@ -222,23 +237,30 @@ footer .thesis{font-size:clamp(20px,3vw,28px)}
   <footer>
     <p class="thesis">인지부터 전환까지, 경영자의 시각으로</p>
     <div class="contact"><b>홍세훈</b><span class="mail">neoliberty@naver.com</span><span class="mail">010-9551-9238</span></div>
+    <div class="actions">
+        <a class="act" href="hongsehoon_resume.pdf" download="홍세훈_이력서.pdf"><span class="ic">↓</span>이력서 PDF</a>
+        <a class="act" href="portfolio_1080p.mp4" download="홍세훈_포트폴리오_영상.mp4"><span class="ic">↓</span>포트폴리오 영상 <small>52MB</small></a>
+        <button type="button" class="act share"><span class="ic">↗</span>이 페이지 공유하기</button>
+      </div>
     <p class="note">광고 장면·캠페인 이미지의 저작권은 각 광고주·제작사 소유. 포트폴리오 소개 목적으로만 사용</p>
   </footer>
 </div>
 
 <script>
-document.getElementById('copy').addEventListener('click',async e=>{
-  const b=e.currentTarget, t=document.getElementById('mail').textContent;
-  try{await navigator.clipboard.writeText(t);b.textContent='복사됨';}
-  catch(_){const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='선택됨 · Ctrl+C';}
-  setTimeout(()=>{b.textContent='이메일 복사'},2000);
-});
 
 (()=>{const v=document.getElementById('intro'),b=document.getElementById('unmute');if(!v||!b)return;
 const sync=()=>{b.hidden=!v.muted||v.ended;};
 b.addEventListener('click',()=>{v.muted=false;v.currentTime=0;v.play().catch(()=>{});sync();});
 v.addEventListener('volumechange',sync);v.addEventListener('ended',sync);
 const p=v.play();if(p&&p.catch)p.catch(()=>{});sync();})();
+
+(()=>{const URL_='https://bomrok.github.io/hongsehoon/';const t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);
+const toast=m=>{t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),2200);};
+document.querySelectorAll('.act.share').forEach(b=>b.addEventListener('click',async()=>{
+  const data={title:'홍세훈 · 풀퍼널 마케팅 전략가',text:'인지부터 전환까지, 경영자의 시각으로 풀퍼널 마케팅을 설계하는 전략가',url:URL_};
+  if(navigator.share){try{await navigator.share(data);return;}catch(e){if(e&&e.name==='AbortError')return;}}
+  try{await navigator.clipboard.writeText(URL_);toast('링크를 복사했어요');}catch(e){prompt('아래 링크를 복사하세요',URL_);}
+}));})();
 </script>
 
 </body>
